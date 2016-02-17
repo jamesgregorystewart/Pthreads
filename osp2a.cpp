@@ -8,7 +8,7 @@ void *calculateMean( void *ptr );
 void *calculateMin( void *ptr );
 void *calculateMax( void *ptr );
 
-double average = -1;
+float average = -1;
 int max, minimum, maximum;
 
 int main(int argc, char* argv[]) {
@@ -27,7 +27,9 @@ int main(int argc, char* argv[]) {
   pthread_join(minThread, NULL);
   pthread_join(maxThread, NULL);
 
-  std::cout << "Average is: " << average << "\n";
+  cout.precision(2);
+
+  std::cout << "Average is: " << fixed << average << "\n";
   std::cout << "Minimum is: " << minimum << "\n";
   std::cout << "Maximum is: " << maximum << "\n";
 
@@ -52,7 +54,7 @@ void *calculateMean( void *ptr ){
   }
 
   // Set global average variable
-  average = sum / count;
+  average = ( (float) sum / (float) count);
 }
 
 void *calculateMin( void *ptr ){
