@@ -1,3 +1,23 @@
+//*********************************************************
+//
+// James Stewart and Will Taylor
+// Operating Systems
+// Project #2a
+//
+// Due: Monday, Feb. 22 at Midnight
+//
+// This multithreaded program uses PThreads to calculate the max,
+// min, and mean of a set of integers. There are three threads,
+// meanThread, maxThread, and minThread that perform these calculations.
+// The main thread prints out the results after all three threads have
+// exited.
+//
+//  Input: A series of n integers from the command line.
+//
+//  Output: The max, min, and mean of the series of integers.
+//
+//*********************************************************
+
 #include <iostream>
 #include <pthread.h>
 #include <assert.h>
@@ -29,9 +49,9 @@ int main(int argc, char* argv[]) {
 
   cout.precision(2);
 
-  std::cout << "Average is: " << fixed << average << "\n";
-  std::cout << "Minimum is: " << minimum << "\n";
-  std::cout << "Maximum is: " << maximum << "\n";
+  std::cout << "MEAN: " << fixed << average << "\n";
+  std::cout << "MIN: " << minimum << "\n";
+  std::cout << "MAX: " << maximum << "\n";
 
   return 0;
 }
@@ -55,6 +75,8 @@ void *calculateMean( void *ptr ){
 
   // Set global average variable
   average = ( (float) sum / (float) count);
+
+  pthread_exit(0);
 }
 
 void *calculateMin( void *ptr ){
@@ -77,6 +99,8 @@ void *calculateMin( void *ptr ){
 
   // Set global min variable
   minimum = min;
+
+  pthread_exit(0);
 }
 
 void *calculateMax( void *ptr ){
@@ -99,4 +123,6 @@ void *calculateMax( void *ptr ){
 
   // Set global min variable
   maximum = max;
+
+  pthread_exit(0);
 }
