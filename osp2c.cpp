@@ -186,6 +186,7 @@ void *checkBox( void *ptr ){
     case 8:
       box9Correct = boxIsCorrect;
     }
+  pthread_exit(0);
 }
 
 int getCenterPosition(int center){
@@ -213,7 +214,7 @@ int getCenterPosition(int center){
     case 8:
       return 70;
     }
-
+    pthread_exit(0);
 }
 
 void *checkColumns( void *ptr ){

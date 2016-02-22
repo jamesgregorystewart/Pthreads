@@ -10,6 +10,7 @@ CPP = g++
 CCOPTS =
 CPPOPTS =
 LEX = flex
+LIBS =
 RM = /bin/rm
 RMOPTS = -f
 
@@ -17,13 +18,13 @@ all: osp2a osp2b osp2c
 
 ###
 osp2a: osp2a.o
-	$(CPP) $(CPPOPTS) osp2a.o -o osp2a
+	$(CPP) $(CPPOPTS) osp2a.o -o osp2a -lpthread
 
 osp2b: osp2b.o
-	$(CPP) $(CPPOPTS) osp2b.o -o osp2b
+	$(CPP) $(CPPOPTS) osp2b.o -o osp2b -lpthread
 
 osp2c: osp2c.o
-	$(CPP) $(CPPOPTS) osp2c.o -o osp2c
+	$(CPP) $(CPPOPTS) osp2c.o -o osp2c -lpthread
 
 osp2a.o: osp2a.cpp
 	 $(CPP) $(CPPOPTS) -c osp2a.cpp
