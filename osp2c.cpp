@@ -80,7 +80,7 @@ int main(int argc, char* argv[]) {
   int parameter7 = 7;
   pthread_create( &box8Thread, NULL, checkBox, (void*) &parameter7);
   int parameter8 = 8;
-  pthread_create( &box8Thread, NULL, checkBox, (void*) &parameter8);
+  pthread_create( &box9Thread, NULL, checkBox, (void*) &parameter8);
 
   // Join with threads
   pthread_join(columnThread, NULL);
