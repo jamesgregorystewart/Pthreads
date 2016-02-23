@@ -106,6 +106,11 @@ void *printString(void *ptr) {
     token = gargv[gindex];
     firstChar = token.at(0);
 
+    //The three threads will remain in this while loop constantly looping
+    //and entering the if statement that matches with their id and the
+    //first character of the argument. After any thread prints, the
+    //index related to the argument # will be incremented.
+
     if (isConsonant(firstChar) && id == 0) {
       cout << "CONSONANT: " << token << endl;
       gindex++;
